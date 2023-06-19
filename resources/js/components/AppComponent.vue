@@ -1,11 +1,8 @@
 <script setup>
+import {RouterView} from "vue-router";
 import LoginComponent from "@/components/LoginComponent.vue";
 
-console.log("component found")
 </script>
 <template>
-
-<login-component/>
-
-
+    <RouterView/>
 </template>

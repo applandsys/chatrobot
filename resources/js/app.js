@@ -6,6 +6,10 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import router from "@/router/index.js";
+import {createPinia} from "pinia";
+
+const pinia = createPinia();
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -16,5 +20,7 @@ import { createApp } from 'vue';
 const app = createApp({});
 import AppComponent from './components/AppComponent.vue';
 app.component('app-component', AppComponent);
+app.use(router)
+app.use(pinia)
 app.mount('#app');
 

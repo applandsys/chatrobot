@@ -10,7 +10,7 @@
                                 <img src="assets/images/logo-light.png" alt="" height="30" class="logo logo-light">
                             </a>
 
-                            <h4>Sign in</h4>
+                            <h4>Sign up</h4>
                             <p class="text-muted mb-4">Sign in to continue to Chat Robot.</p>
 
                         </div>
@@ -20,7 +20,18 @@
                                 <div class="p-3">
                                     <form>
                                         <div class="mb-3">
-                                            <label class="form-label">Username</label>
+                                            <label class="form-label">Name</label>
+                                            <div class="input-group mb-3 bg-light-subtle rounded-3">
+                                                <span class="input-group-text text-muted" id="basic-addon3">
+                                                    <i class="ri-user-2-line"></i>
+                                                </span>
+                                                <input type="text" class="form-control form-control-lg border-light bg-light-subtle" placeholder="Enter Username" aria-label="Enter Username" aria-describedby="basic-addon3">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Email</label>
                                             <div class="input-group mb-3 bg-light-subtle rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon3">
                                                     <i class="ri-user-2-line"></i>
@@ -58,7 +69,7 @@
                         </div>
 
                         <div class="mt-5 text-center">
-                            <p>Don't have an account ? <router-link to="/signup" class="fw-medium text-primary"> Signup now </router-link> </p>
+                            <p>Already have an account ? <router-link to="/" class="fw-medium text-primary"> Sign in </router-link> </p>
                             <p>© 2023. Crafted with <i class="mdi mdi-heart text-danger"></i> by SoilApps</p>
                         </div>
                     </div>

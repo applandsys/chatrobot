@@ -25,8 +25,10 @@ class RegisterController extends BaseController
         $input = $request->all();
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
-        $success["token"] = $user->createToken("Myapp")->plainTextToken();
         $success["user_data"] = $user;
+
+//        $success["token"] = $user->createToken("Myapp")->plainTextToken();
+//        $success["user_data"] = $user;
 
         return $this->sendResponse( $success,"User Created Successfully");
     }
@@ -35,7 +37,7 @@ class RegisterController extends BaseController
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $user = Auth::user();
-            $success['token'] =  $user->createToken('MyApp')->plainTextToken;
+            $success['token'] = $user->createToken('SMSApp')->plainTextToken;
             $success["user_data"] = $user;
             return $this->sendResponse($success, 'User login successfully.');
         }
