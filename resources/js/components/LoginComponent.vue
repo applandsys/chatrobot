@@ -5,40 +5,37 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="text-center mb-4">
-                            <a href="index.html" class="auth-logo mb-5 d-block">
+                            <router-link to="/" class="auth-logo mb-5 d-block">
                                 <img src="assets/images/logo-dark.png" alt="" height="30" class="logo logo-dark">
                                 <img src="assets/images/logo-light.png" alt="" height="30" class="logo logo-light">
-                            </a>
-
-                            <h4>Sign in</h4>
+                            </router-link>
+                            <h4>Sign in {{ store.isLogin}}</h4>
                             <p class="text-muted mb-4">Sign in to continue to Chat Robot.</p>
-
                         </div>
-
                         <div class="card">
                             <div class="card-body p-4">
                                 <div class="p-3">
-                                    <form>
+                                    <form @submit.prevent="handleSignin()">
                                         <div class="mb-3">
-                                            <label class="form-label">Username</label>
+                                            <label class="form-label">User Email</label>
                                             <div class="input-group mb-3 bg-light-subtle rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon3">
                                                     <i class="ri-user-2-line"></i>
                                                 </span>
-                                                <input type="text" class="form-control form-control-lg border-light bg-light-subtle" placeholder="Enter Username" aria-label="Enter Username" aria-describedby="basic-addon3">
+                                                <input v-model="formData.email" type="text" class="form-control form-control-lg border-light bg-light-subtle" placeholder="Enter Username" aria-label="Enter Username" aria-describedby="basic-addon3">
                                             </div>
                                         </div>
 
                                         <div class="mb-4">
                                             <div class="float-end">
-                                                <a href="auth-recoverpw.html" class="text-muted font-size-13">Forgot password?</a>
+                                                <router-link to="/" class="text-muted font-size-13">Forgot password?</router-link>
                                             </div>
                                             <label class="form-label">Password</label>
                                             <div class="input-group mb-3 bg-light-subtle rounded-3">
                                                 <span class="input-group-text text-muted" id="basic-addon4">
                                                     <i class="ri-lock-2-line"></i>
                                                 </span>
-                                                <input type="password" class="form-control form-control-lg border-light bg-light-subtle" placeholder="Enter Password" aria-label="Enter Password" aria-describedby="basic-addon4">
+                                                <input v-model="formData.password"  type="password" class="form-control form-control-lg border-light bg-light-subtle" placeholder="Enter Password" aria-label="Enter Password" aria-describedby="basic-addon4">
 
                                             </div>
                                         </div>
@@ -69,7 +66,24 @@
 </template>
 
 <script setup>
+import {reactive} from "vue"
+import {useStore} from "@/stores/index.js";
+import AuthenticationService from "@/services/AuthenticationService.js";
 
+const store = useStore();
+const formData = reactive({email:'',password: ''});
+
+const handleSignin = async ()=>{
+    const payload= await AuthenticationService.authenticate(formData);
+    console.log(payload.data.data)
+   if(payload.data.data.token){
+       store.userData = payload.data.data.user_data;
+       store.authToken = payload.data.data.token;
+       store.isLogin = true;
+       localStorage.setItem("authToken", payload.data.token);
+   }
+
+}
 </script>
 
 <style lang="scss" scoped>
