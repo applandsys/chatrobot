@@ -80,6 +80,7 @@ const handleSignin = async ()=>{
        store.userData = payload.data.data.user_data;
        store.authToken = payload.data.data.token;
        store.isLogin = true;
+       localStorage.setItem("isLogin", '1');
        localStorage.setItem("authToken", payload.data.token);
    }
 
