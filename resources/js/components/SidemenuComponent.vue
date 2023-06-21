@@ -1,23 +1,18 @@
 <template>
-    <!-- Start left sidebar-menu -->
     <div class="side-menu flex-lg-column me-lg-1 ms-lg-0">
-        <!-- LOGO -->
         <div class="navbar-brand-box">
-            <a href="index.html" class="logo logo-dark">
-                        <span class="logo-sm">
-                            <img src="assets/images/logo.svg" alt="" height="30">
-                        </span>
-            </a>
-
-            <a href="index.html" class="logo logo-light">
-                        <span class="logo-sm">
-                            <img src="assets/images/logo.svg" alt="" height="30">
-                        </span>
-            </a>
+            <router-link to="/" class="logo logo-dark">
+                <span class="logo-sm">
+                    <img src="assets/images/logo-dark.png" alt="" height="30">
+                </span>
+            </router-link>
+            <router-link to="/" class="logo logo-light">
+                <span class="logo-sm">
+                    <img src="assets/images/logo-dark.png" alt="" height="30">
+                </span>
+            </router-link>
         </div>
-        <!-- end navbar-brand-box -->
 
-        <!-- Start side-menu nav -->
         <div class="flex-lg-column my-auto">
             <ul class="nav nav-pills side-menu-nav justify-content-center" role="tablist">
                 <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile">
