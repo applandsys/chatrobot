@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('numbers', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('gateway_id');
+            $table->integer('user_id');
             $table->string('number');
             $table->timestamps();
         });

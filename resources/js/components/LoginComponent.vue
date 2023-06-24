@@ -68,13 +68,12 @@
 <script setup>
 import {reactive} from "vue"
 import {useAuthStore} from "@/stores/authStore.js";
-import AuthenticationService from "@/services/AuthenticationService.js";
 
 const store = useAuthStore();
 const formData = reactive({email:'',password: ''});
 
 const handleSignin = async ()=>{
-    const payload= await AuthenticationService.authenticate(formData);
+    const payload = await store.authenticate(formData);
     console.log(payload.data.data)
    if(payload.data.data.token){
        store.userData = payload.data.data.user_data;

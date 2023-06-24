@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Number extends Model
 {
     use HasFactory;
+    protected $fillable = ['gateway_id','user_id','number'];
 }

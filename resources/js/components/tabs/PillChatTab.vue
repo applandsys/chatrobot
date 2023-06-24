@@ -81,6 +81,15 @@
 </template>
 
 <script setup>
+import {useNumberStore} from "@/stores/numberStore.js";
+import {onMounted} from "vue";
+
+const store = useNumberStore();
+
+onMounted(async ()=>{
+    const numberList = await store.getNumber();
+    console.log(numberList);
+})
 
 </script>
 

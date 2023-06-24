@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\NumberController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(RegisterController::class)->group(function(){
-    Route::post('register', 'register');
-    Route::post('login', 'login');
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+});
+
+
+Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::get('/getnumber',[NumberController::class,'getNumber']);
+    Route::post('/logout', [LogoutController::class, 'logout']);
 });

@@ -40,16 +40,10 @@
                         <i class="ri-settings-2-line"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown profile-user-dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="assets/images/users/avatar-1.jpg" alt="" class="profile-user rounded-circle">
+                <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
+                    <a class="nav-link" id="pills-setting-tab" @click="logOut">
+                        <i class="mdi mdi-logout"></i>
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Profile <i class="ri-profile-line float-end text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Setting <i class="ri-settings-3-line float-end text-muted"></i></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out <i class="ri-logout-circle-r-line float-end text-muted"></i></a>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -74,6 +68,15 @@
 </template>
 
 <script setup>
+import {useAuthStore} from "@/stores/authStore.js";
+const store = useAuthStore();
+const logOut =  async ()=>{
+    // const payload = {};
+    // const { data }  =  await store.logout(payload);
+    // console.log(data);
+    store.logOut();
+    store.$reset();
+}
 
 </script>
 

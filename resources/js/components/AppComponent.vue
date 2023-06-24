@@ -1,9 +1,9 @@
 <script setup>
-import {useStore} from "@/stores/index.js";
+import {useAuthStore} from "@/stores/authStore.js";
 import AuthComponent from "@/components/AuthComponent.vue";
 import DashboardComponent from "@/components/DashboardComponent.vue";
 
-const store = useStore();
+const store = useAuthStore();
 
 console.log(store.isLogin);
 </script>
