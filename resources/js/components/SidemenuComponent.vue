@@ -30,11 +30,11 @@
                         <i class="ri-group-line"></i>
                     </a>
                 </li>
-                <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacts">
-                    <a class="nav-link" id="pills-contacts-tab" data-bs-toggle="pill" href="#pills-contacts" role="tab">
-                        <i class="ri-contacts-line"></i>
-                    </a>
-                </li>
+<!--                <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacts">-->
+<!--                    <a class="nav-link" id="pills-contacts-tab" data-bs-toggle="pill" href="#pills-contacts" role="tab">-->
+<!--                        <i class="ri-contacts-line"></i>-->
+<!--                    </a>-->
+<!--                </li>-->
                 <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings">
                     <a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#pills-setting" role="tab">
                         <i class="ri-settings-2-line"></i>
@@ -53,16 +53,8 @@
                 </li>
             </ul>
         </div>
-        <!-- end side-menu nav -->
-
         <div class="flex-lg-column d-none d-lg-block">
             <ul class="nav side-menu-nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link light-dark-mode" href="#" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" title="Dark / Light Mode">
-                        <i class='ri-sun-line theme-mode-icon'></i>
-                    </a>
-                </li>
-
                 <li class="nav-item btn-group dropup profile-user-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="assets/images/users/avatar-1.jpg" alt="" class="profile-user rounded-circle">

@@ -67,10 +67,10 @@
 
 <script setup>
 import {reactive} from "vue"
-import {useStore} from "@/stores/index.js";
+import {useAuthStore} from "@/stores/authStore.js";
 import AuthenticationService from "@/services/AuthenticationService.js";
 
-const store = useStore();
+const store = useAuthStore();
 const formData = reactive({email:'',password: ''});
 
 const handleSignin = async ()=>{
