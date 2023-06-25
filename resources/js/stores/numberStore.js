@@ -1,18 +1,16 @@
 import {defineStore} from "pinia";
 import {useAuthStore} from "@/stores/authStore.js";
+import http from "@/httpcommon.js";
 
 export const useNumberStore =  defineStore('number_store',{
     state: ()=>({
-        numberList : {
-            id:1,
-            number:'0255555'
-        }
+        numberList : {}
     }),
     actions:{
         async getNumber(){
-            const store = useAuthStore();
-            const token = await store.authToken;
-            console.log("token",token);
+             const {data}= await http.get(`getnumber`);
+             this.numberList = data.data;
+             return this.numberList;
         }
     }
 })

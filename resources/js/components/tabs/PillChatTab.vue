@@ -12,21 +12,20 @@
                     </div>
                 </div>
             </div>
-
             <div class="">
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
                     <ul class="list-unstyled chat-list chat-user-list">
-                        <li>
+                        <li v-for="(list,index) in numberList" :key="index">
                             <a href="#">
                                 <div class="d-flex">
                                     <div class="chat-user-img online align-self-center me-3 ms-0">
-                                        <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="">
+                                        <img src="assets/images/users/avatar_default.webp" class="rounded-circle avatar-xs" alt="">
                                         <span class="user-status"></span>
                                     </div>
 
                                     <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="text-truncate font-size-15 mb-1">01837664478</h5>
+                                        <h5 class="text-truncate font-size-15 mb-1">{{list.number}}</h5>
                                         <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p>
                                     </div>
                                     <div class="font-size-11">05 min</div>
@@ -34,45 +33,6 @@
                             </a>
                         </li>
 
-                        <li class="active">
-                            <a href="#">
-                                <div class="d-flex">
-                                    <div class="chat-user-img online align-self-center me-3 ms-0">
-                                        <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="text-truncate font-size-15 mb-1">01403251501</h5>
-                                        <p class="chat-user-message text-truncate mb-0">Nice to meet you</p>
-                                    </div>
-                                    <div class="font-size-11">10:12 AM</div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="typing">
-                            <a href="#">
-                                <div class="d-flex">
-                                    <div class="chat-user-img align-self-center online me-3 ms-0">
-                                        <div class="avatar-xs">
-                                                <span class="avatar-title rounded-circle bg-primary-subtle text-primary">
-                                                    A
-                                                </span>
-                                        </div>
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="text-truncate font-size-15 mb-1">019250678910</h5>
-                                        <p class="chat-user-message text-truncate mb-0">typing<span class="animate-typing">
-                                                            <span class="dot"></span>
-                                                            <span class="dot"></span>
-                                                            <span class="dot"></span>
-                                                        </span></p>
-                                    </div>
-                                    <div class="font-size-11">04:56 PM</div>
-                                </div>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -82,15 +42,16 @@
 
 <script setup>
 import {useNumberStore} from "@/stores/numberStore.js";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 
 const store = useNumberStore();
 
-onMounted(async ()=>{
-    const numberList = await store.getNumber();
-    console.log(numberList);
-})
+const numberList =  ref({});
 
+onMounted(async ()=>{
+     const myList = await store.getNumber();
+     numberList.value = myList;
+})
 </script>
 
 <style lang="scss" scoped>

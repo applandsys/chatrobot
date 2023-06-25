@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Database\Seeders\NumberSeeder;
-use Illuminate\Http\Request;
+use App\Models\Number;
 
 class NumberController extends BaseController
 {
