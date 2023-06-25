@@ -13,6 +13,7 @@
                 </div>
             </div>
             <div class="">
+                {{numberList}}
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
                     <ul class="list-unstyled chat-list chat-user-list">

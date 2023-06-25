@@ -5,7 +5,7 @@ export const useAuthStore = defineStore('main',{
         state: ()=>({
             isLogin:  Boolean(localStorage.getItem("isLogin")),
             authToken: localStorage.getItem('authToken'),
-            userData: null
+            userData: {}
         }),
         actions:{
             authenticate(payload){
