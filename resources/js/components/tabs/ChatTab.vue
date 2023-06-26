@@ -8,7 +8,10 @@
                             <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
                                 <i class="ri-search-line search-icon font-size-18"></i>
                             </span>
-                        <input type="text" class="form-control bg-light" placeholder="Search Number" aria-label="Search Number" aria-describedby="basic-addon1">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select a Number</option>
+                            <option v-for="(list,index) in numberList" :key="index" :value="list.id">{{list.number}}</option>
+                        </select>
                     </div>
                 </div>
             </div>

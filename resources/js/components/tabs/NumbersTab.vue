@@ -9,7 +9,6 @@
                         </button>
                     </div>
                 </div>
-                {{numberList}}
                 <h4 class="mb-4">Numbers</h4>
                 <div class="modal fade" id="addgroup-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addgroup-exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
