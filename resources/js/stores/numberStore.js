@@ -5,8 +5,13 @@ import http from "@/httpcommon.js";
 
 export const useNumberStore =  defineStore('number_store',{
     state: ()=>({
-        numberList : {}
+        numberList : {},
+        gatewayList : {},
+        selectedNumber:0
     }),
+    getters:{
+        selectedNumberDetail: (state) => { return state.numberList[state.selectedNumber]}
+    },
     actions:{
         async getNumber(){
              const authStore = useAuthStore();
@@ -15,8 +20,18 @@ export const useNumberStore =  defineStore('number_store',{
              this.numberList = data.data;
              return this.numberList;
         },
-        async addNumber(){
-            console.log("add nubmer");
+        async addNumber(payload){
+            const authStore = useAuthStore();
+            const token = authStore.authToken;
+            const {data}= await http.post(`add-number`,payload,{ headers: {"Authorization" : `Bearer ${token}`} });
+            console.log(data);
+        },
+        async getAllGateway(){
+            const authStore = useAuthStore();
+            const token = authStore.authToken;
+            const {data}= await http.get(`get-all-gateway`,{ headers: {"Authorization" : `Bearer ${token}`} });
+            this.gatewayList = data.data;
+            return this.gatewayList;
         }
     }
 })

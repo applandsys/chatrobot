@@ -13,11 +13,10 @@
                 </div>
             </div>
             <div class="">
-                {{numberList}}
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
                     <ul class="list-unstyled chat-list chat-user-list">
-                        <li v-for="(list,index) in numberList" :key="index">
+                        <li v-for="(list,index) in numberList" :key="index" :class="{'active': store.selectedNumber==index}" @click="selectNumber(index)">
                             <a href="#">
                                 <div class="d-flex">
                                     <div class="chat-user-img online align-self-center me-3 ms-0">
@@ -33,7 +32,6 @@
                                 </div>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -43,11 +41,13 @@
 
 <script setup>
 import {useNumberStore} from "@/stores/numberStore.js";
-import {onMounted, ref} from "vue";
+import { onMounted, ref} from "vue";
 
 const store = useNumberStore();
-
 const numberList =  ref({});
+const selectNumber = (index)=>{
+    store.selectedNumber = index;
+}
 
 onMounted(async ()=>{
      const myList = await store.getNumber();

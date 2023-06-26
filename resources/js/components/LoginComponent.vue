@@ -74,7 +74,6 @@ const formData = reactive({email:'',password: ''});
 
 const handleSignin = async ()=>{
     const {data} = await store.authenticate(formData);
-    console.log(data.data)
    if(data){
        store.userData = data.data.user_data;
        store.authToken = data.data.token;
@@ -82,7 +81,6 @@ const handleSignin = async ()=>{
        localStorage.setItem("isLogin", '1');
        localStorage.setItem("authToken", data.data.token);
    }
-
 }
 </script>
 

@@ -29,6 +29,8 @@ Route::controller(RegisterController::class)->group(function(){
 
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::get('/get-all-gateway',[NumberController::class, 'getAllGateway']);
     Route::get('/getnumber',[NumberController::class, 'getNumber']);
+    Route::post('/add-number',[NumberController::class, 'addNumber']);
     Route::post('/logout', [LogoutController::class, 'logout']);
 });

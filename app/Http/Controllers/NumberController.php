@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
+use App\Models\Gateway;
 use App\Models\Number;
-use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
 
 class NumberController extends BaseController
@@ -18,6 +18,7 @@ class NumberController extends BaseController
         $form_data = $request->input();
         $gateway_id         =  $form_data['gateway_id'];
         $number               =  $form_data['number'];
+
         $number_unique  = Number::where('number',$number)->count();
 
         if($number_unique){
@@ -31,6 +32,11 @@ class NumberController extends BaseController
             $message = "Attendence successfully Created";
             return $this->sendResponse($create,"Number added Successfully");
         }
+    }
+
+    public function getAllGateway(){
+        $gateway = Gateway::get();
+        return $this->sendResponse( $gateway,"Gateway list accessed successfully");
     }
 
 }

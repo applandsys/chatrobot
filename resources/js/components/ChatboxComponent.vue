@@ -1,5 +1,6 @@
 <template>
     <div class="user-chat w-100 overflow-hidden">
+        {{ store.selectedNumber}} = {{store.selectedNumberDetail}}
         <div class="d-lg-flex">
             <div class="w-100 overflow-hidden position-relative">
                 <div class="p-3 p-lg-4 border-bottom user-chat-topbar">
@@ -7,18 +8,18 @@
                         <div class="col-sm-4 col-8">
                             <div class="d-flex align-items-center">
                                 <div class="d-block d-lg-none me-2 ms-0">
-                                    <a href="javascript: void(0);" class="user-chat-remove text-muted font-size-16 p-2"><i class="ri-arrow-left-s-line"></i></a>
+                                    <a href="" class="user-chat-remove text-muted font-size-16 p-2"><i class="ri-arrow-left-s-line"></i></a>
                                 </div>
                                 <div class="me-3 ms-0">
-                                    <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="">
+                                    <img src="assets/images/users/avatar_default.webp" class="rounded-circle avatar-xs" alt="">
                                 </div>
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <h5 class="font-size-16 mb-0 text-truncate"><a href="#" class="text-reset user-profile-show">Doris Brown</a> <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i></h5>
+                                    <h5 class="font-size-16 mb-0 text-truncate"><a href="#" class="text-reset user-profile-show">{{store.selectedNumberDetail?.number}}</a> <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ms-1"></i></h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-8 col-4">
-
+                            <div class="text-end fw-bold text-reset user-profile-show">R: 025899999</div>
                         </div>
                     </div>
                 </div>
@@ -56,11 +57,11 @@
                         </li>
 
 
-                        <li>
-                            <div class="chat-day-title">
-                                <span class="title">Today</span>
-                            </div>
-                        </li>
+<!--                        <li>-->
+<!--                            <div class="chat-day-title">-->
+<!--                                <span class="title">Today</span>-->
+<!--                            </div>-->
+<!--                        </li>-->
 
                         <li>
                             <div class="conversation-list">
@@ -368,6 +369,12 @@
 </template>
 
 <script setup>
+import {useNumberStore} from "@/stores/numberStore.js";
+import {ref} from "vue";
+
+
+const store =  useNumberStore();
+const selectedNumber = ref(store.selectedNumber);
 
 </script>
 

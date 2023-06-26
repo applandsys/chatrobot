@@ -4,8 +4,8 @@
         <div class="chat-leftsidebar me-lg-1 ms-lg-0">
             <div class="tab-content">
                 <pill-user-tab/>
-                <pill-chat-tab/>
-                <pill-group-tab/>
+                <chat-tab/>
+                <numbers-tab/>
 <!--                <pill-contact-tab/>-->
                 <pill-setting-tab/>
             </div>
@@ -19,9 +19,9 @@
 import SidemenuComponent from "@/components/SidemenuComponent.vue";
 import ChatboxComponent from "@/components/ChatboxComponent.vue";
 import PillUserTab from "@/components/tabs/PillUserTab.vue";
-import PillChatTab from "@/components/tabs/PillChatTab.vue";
-import PillContactTab from "@/components/tabs/PillContactTab.vue";
-import PillGroupTab from "@/components/tabs/PillGroupTab.vue";
+import ChatTab from "@/components/tabs/ChatTab.vue";
+//import PillContactTab from "@/components/tabs/PillContactTab.vue";
+import NumbersTab from "@/components/tabs/NumbersTab.vue";
 import PillSettingTab from "@/components/tabs/PillSettingTab.vue";
 </script>
 

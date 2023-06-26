@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('api_key')->nullable();
+            $table->text('api_secret')->nullable();
             $table->timestamps();
         });
     }
