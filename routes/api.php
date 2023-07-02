@@ -34,3 +34,5 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('/add-number',[NumberController::class, 'addNumber']);
     Route::post('/logout', [LogoutController::class, 'logout']);
 });
+
+Route::get('/get-message', [\App\Http\Controllers\ReceiveController::class,'receiveMessage']);

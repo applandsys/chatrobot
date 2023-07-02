@@ -19,4 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{any}', function () {
     return view('welcome');
-})->where('any', '.*');
+})->where('any', '^(?!api).*$');
+
+//->where('any', '.*');
+//->where('all','^(?!api|nova).*$');
+
+
+//Route::get('/api/get-message', [\App\Http\Controllers\ReceiveController::class,'receiveMessage']);

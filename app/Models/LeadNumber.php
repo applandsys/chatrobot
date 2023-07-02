@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class LeadNumber extends Model
 {
     use HasFactory;
+    protected $fillable = ['number','status'];
 }
