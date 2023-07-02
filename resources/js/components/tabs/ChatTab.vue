@@ -8,9 +8,9 @@
                             <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
                                 <i class="ri-search-line search-icon font-size-18"></i>
                             </span>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example"  v-model="selectedNumber" @change="selectNumber">
                             <option selected>Select a Number</option>
-                            <option v-for="(list,index) in numberList" :key="index" :value="list.id">{{list.number}}</option>
+                            <option v-for="(list,index) in numberList" :key="index" :value="list.id" >{{list.number}}</option>
                         </select>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
                     <ul class="list-unstyled chat-list chat-user-list">
-                        <li v-for="(list,index) in numberList" :key="index" :class="{'active': store.selectedNumber==index}" @click="selectNumber(index)">
+                        <li v-for="(list,index) in numberList" :key="index" :class="{'active': store.selectedNumber==index}" >
                             <a href="#">
                                 <div class="d-flex">
                                     <div class="chat-user-img online align-self-center me-3 ms-0">
@@ -48,8 +48,10 @@ import { onMounted, ref} from "vue";
 
 const store = useNumberStore();
 const numberList =  ref({});
-const selectNumber = (index)=>{
-    store.selectedNumber = index;
+const selectedNumber = ref();
+const selectNumber = ()=>{
+    console.log(selectedNumber.value);
+    store.selectedNumber = selectedNumber.value;
 }
 
 onMounted(async ()=>{
