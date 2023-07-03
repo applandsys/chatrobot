@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NumberController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\LeadConteroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,10 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::get('/get-all-gateway',[NumberController::class, 'getAllGateway']);
     Route::get('/getnumber',[NumberController::class, 'getNumber']);
     Route::post('/add-number',[NumberController::class, 'addNumber']);
+    Route::get('/getLead/{numberId}',[LeadConteroller::class,'getLead']);
     Route::post('/logout', [LogoutController::class, 'logout']);
 });
 
-Route::get('/get-message', [\App\Http\Controllers\ReceiveController::class,'receiveMessage']);
+Route::get('/get-message', [\App\Http\Controllers\ReceiveController::class,'receiveMessage']); // Receive INcoming message
+
+

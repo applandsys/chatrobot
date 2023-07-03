@@ -13,7 +13,6 @@ export const useNumberStore =  defineStore('number_store',{
     }),
     getters:{
         selectedNumberDetail: (state) => { return state?.numberList[state?.selectedNumber]}, // use less
-        selectedLeadDetail: (state) => { return state?.leadList[state?.selectedLead]}
     },
     actions:{
         async getNumber(){
@@ -22,6 +21,13 @@ export const useNumberStore =  defineStore('number_store',{
              const {data}= await http.get(`getnumber`,{ headers: {"Authorization" : `Bearer ${token}`} });
              this.numberList = data.data;
              return this.numberList;
+        },
+        async getLead(numberId){
+            const authStore = useAuthStore();
+            const token = authStore.authToken;
+            const {data}= await http.get(`getLead/${numberId}`,{ headers: {"Authorization" : `Bearer ${token}`} });
+            this.leadList = data.data;
+            return this.leadList;
         },
         async addNumber(payload){
             const authStore = useAuthStore();

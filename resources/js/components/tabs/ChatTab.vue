@@ -5,12 +5,12 @@
                 <h4 class="mb-4">Chats</h4>
                 <div class="search-box chat-search-box">
                     <div class="input-group mb-3 rounded-3">
-                            <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
-                                <i class="ri-search-line search-icon font-size-18"></i>
-                            </span>
+                        <span class="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
+                            <i class="ri-search-line search-icon font-size-18"></i>
+                        </span>
                         <select class="form-select" aria-label="Default select example"  v-model="selectedNumber" @change="selectNumber">
                             <option selected>Select a Number</option>
-                            <option v-for="(list,index) in numberList" :key="index" :value="list.id" >{{list.number}}</option>
+                            <option v-for="(list,index) in numberList" :key="index" :value="index" >{{list.number}}</option>
                         </select>
                     </div>
                 </div>
@@ -48,15 +48,20 @@ import { onMounted, ref} from "vue";
 
 const store = useNumberStore();
 const numberList =  ref({});
+const leadList =  ref({});
 const selectedNumber = ref();
-const selectNumber = ()=>{
-    console.log(selectedNumber.value);
+
+const selectNumber = async ()=>{
     store.selectedNumber = selectedNumber.value;
+    const myLead = await store.getLead(store.selectedNumberDetail.id);
+     leadList.value = myLead;
+    console.log("Selected Number er id:",store.selectedNumberDetail.id);
 }
 
 onMounted(async ()=>{
      const myList = await store.getNumber();
      numberList.value = myList;
+
 })
 </script>
 
