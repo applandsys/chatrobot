@@ -13,6 +13,8 @@ export const useNumberStore =  defineStore('number_store',{
     }),
     getters:{
         selectedNumberDetail: (state) => { return state?.numberList[state?.selectedNumber]}, // use less
+        selectedLeadDetail: (state) => { return (state.leadList.lead_number) ?  Object.values(state.leadList.lead_number[state.selectedLead]):{}},
+
     },
     actions:{
         async getNumber(){

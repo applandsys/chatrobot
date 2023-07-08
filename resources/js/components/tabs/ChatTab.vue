@@ -18,6 +18,7 @@
             <div class="">
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
+                    {{store.selectedLeadDetail}}
                     <ul class="list-unstyled chat-list chat-user-list">
                         <li v-for="(list,index) in leadList?.lead_number" :key="index" :class="{'active': store.selectedLead==index}" @click="selectLead(index)" >
                             <a href="#">
@@ -59,8 +60,8 @@ const selectNumber = async ()=>{
      console.log("Selected Number er id:",store.selectedNumberDetail.id);
 }
 
-const selectLead =  async (index)=>{
-    console.log(index);
+const selectLead =  (index)=>{
+    console.log("Sleelct lead",index);
     store.selectedLead = index;
 }
 
