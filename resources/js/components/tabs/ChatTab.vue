@@ -19,7 +19,7 @@
                 <h5 class="mb-3 px-3 font-size-16">Recent</h5>
                 <div class="chat-message-list px-2" data-simplebar>
                     <ul class="list-unstyled chat-list chat-user-list">
-                        <li v-for="(list,index) in numberList" :key="index" :class="{'active': store.selectedNumber==index}" >
+                        <li v-for="(list,index) in leadList?.lead_number" :key="index" :class="{'active': store.selectedLead==index}" @click="selectLead(index)" >
                             <a href="#">
                                 <div class="d-flex">
                                     <div class="chat-user-img online align-self-center me-3 ms-0">
@@ -55,7 +55,13 @@ const selectNumber = async ()=>{
     store.selectedNumber = selectedNumber.value;
     const myLead = await store.getLead(store.selectedNumberDetail.id);
      leadList.value = myLead;
-    console.log("Selected Number er id:",store.selectedNumberDetail.id);
+     console.log("Lead List:",leadList.value);
+     console.log("Selected Number er id:",store.selectedNumberDetail.id);
+}
+
+const selectLead =  async (index)=>{
+    console.log(index);
+    store.selectedLead = index;
 }
 
 onMounted(async ()=>{

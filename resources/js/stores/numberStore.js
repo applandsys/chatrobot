@@ -9,7 +9,7 @@ export const useNumberStore =  defineStore('number_store',{
         gatewayList : {},
         selectedNumber:0,
         leadList:{},
-        selectedLead:null
+        selectedLead:0
     }),
     getters:{
         selectedNumberDetail: (state) => { return state?.numberList[state?.selectedNumber]}, // use less
