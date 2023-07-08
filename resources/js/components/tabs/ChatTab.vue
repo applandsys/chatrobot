@@ -56,19 +56,16 @@ const selectNumber = async ()=>{
     store.selectedNumber = selectedNumber.value;
     const myLead = await store.getLead(store.selectedNumberDetail.id);
      leadList.value = myLead;
-     console.log("Lead List:",leadList.value);
-     console.log("Selected Number er id:",store.selectedNumberDetail.id);
 }
 
 const selectLead =  (index)=>{
-    console.log("Sleelct lead",index);
     store.selectedLead = index;
+    console.log(store.selectedLeadDetail);
 }
 
 onMounted(async ()=>{
      const myList = await store.getNumber();
      numberList.value = myList;
-
 })
 </script>
 

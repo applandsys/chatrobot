@@ -1,6 +1,5 @@
 <template>
     <div class="user-chat w-100 overflow-hidden">
-        {{ store.selectedNumber}} = {{store.selectedNumberDetail}}
         <div class="d-lg-flex">
             <div class="w-100 overflow-hidden position-relative">
                 <div class="p-3 p-lg-4 border-bottom user-chat-topbar">
@@ -370,11 +369,8 @@
 
 <script setup>
 import {useNumberStore} from "@/stores/numberStore.js";
-import {ref} from "vue";
-
 
 const store =  useNumberStore();
-const selectedNumber = ref(store.selectedNumber);
 
 </script>
 
