@@ -60,7 +60,8 @@ const selectNumber = async ()=>{
 
 const selectLead =  (index)=>{
     store.selectedLead = index;
-    console.log(store.selectedLeadDetail);
+    console.log("lead id",store.selectedLeadDetail[0]);
+    store.getMessage(store.selectedLeadDetail[0]);
 }
 
 onMounted(async ()=>{

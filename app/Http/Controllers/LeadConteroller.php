@@ -30,6 +30,9 @@ class LeadConteroller extends BaseController
         return $this->sendResponse( $response,"Lead Number get Successfully");
     }
 
-
+    public function getMessage(Request $request, $leadId){
+        $response['messages'] = Message::where('lead_number_id',$leadId)->get();
+        return $this->sendResponse( $response,"Lead Number get Successfully");
+    }
 
 }

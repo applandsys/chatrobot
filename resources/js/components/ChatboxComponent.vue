@@ -23,6 +23,7 @@
                     </div>
                 </div>
                 <div class="chat-conversation p-3 p-lg-4" data-simplebar="init">
+                    {{store.messageList}}
                     <ul class="list-unstyled mb-0">
                         <li>
                             <div class="conversation-list">

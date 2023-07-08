@@ -9,7 +9,8 @@ export const useNumberStore =  defineStore('number_store',{
         gatewayList : {},
         selectedNumber:0,
         leadList:{},
-        selectedLead:0
+        selectedLead:0,
+        messageList:{}
     }),
     getters:{
         selectedNumberDetail: (state) => { return state?.numberList[state?.selectedNumber]}, // use less
@@ -43,6 +44,13 @@ export const useNumberStore =  defineStore('number_store',{
             const {data}= await http.get(`get-all-gateway`,{ headers: {"Authorization" : `Bearer ${token}`} });
             this.gatewayList = data.data;
             return this.gatewayList;
+        },
+        async getMessage(leadId){
+            const authStore = useAuthStore();
+            const token = authStore.authToken;
+            const {data}= await http.get(`get-message/${leadId}`,{ headers: {"Authorization" : `Bearer ${token}`} });
+            this.messageList = data.data;
+            return this.messageList;
         }
     }
 })

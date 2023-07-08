@@ -34,6 +34,7 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::get('/getnumber',[NumberController::class, 'getNumber']);
     Route::post('/add-number',[NumberController::class, 'addNumber']);
     Route::get('/getLead/{numberId}',[LeadConteroller::class,'getLeadNumber']);
+    Route::get('/get-message/{leadId}',[LeadConteroller::class,'getMessage']);
     Route::post('/logout', [LogoutController::class, 'logout']);
 });
 
